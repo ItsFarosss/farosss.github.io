@@ -29,6 +29,23 @@
         width: 350px;
     }
 
+    /* Profile Picture */
+    .pfp {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+        border: 3px solid rgba(255,255,255,0.7);
+        box-shadow: 0 0 25px rgba(255,255,255,0.6);
+        transition: 0.3s ease;
+    }
+
+    .pfp:hover {
+        transform: scale(1.08);
+        box-shadow: 0 0 40px rgba(255,255,255,0.9);
+    }
+
     h1 {
         margin: 0;
         font-size: 36px;
@@ -70,6 +87,10 @@
 <body>
 
 <div class="card">
+
+    <!-- Add your image file in same folder and name it pfp.jpg -->
+    <img src="pfp.jpg" alt="Farosss Profile Picture" class="pfp">
+
     <h1>Farosss</h1>
 
     <div class="email">
@@ -78,11 +99,20 @@
     </div>
 
     <div class="socials">
-        <a href="https://github.com/itsfarosss" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://steamcommunity.com/id/farosss" target="_blank"><i class="fab fa-steam"></i></a>
-        <a href="https://youtube.com/@itsfarosss" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="https://twitch.tv/itsfarosss" target="_blank"><i class="fab fa-twitch"></i></a>
+        <a href="https://github.com/itsfarosss" target="_blank" rel="noopener">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://steamcommunity.com/id/farosss" target="_blank" rel="noopener">
+            <i class="fab fa-steam"></i>
+        </a>
+        <a href="https://youtube.com/@itsfarosss" target="_blank" rel="noopener">
+            <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://twitch.tv/itsfarosss" target="_blank" rel="noopener">
+            <i class="fab fa-twitch"></i>
+        </a>
     </div>
+
 </div>
 
 </body>
