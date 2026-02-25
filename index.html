@@ -6,6 +6,7 @@
 <title>Farosss</title>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
 
 <style>
     body {
@@ -91,6 +92,24 @@
         transform: scale(1.2);
         text-shadow: 0 0 10px white;
     }
+
+    /* Terminal Overlay */
+    #terminal {
+        position: fixed;
+        inset: 0;
+        background: #000;
+        color: #00ff88;
+        padding: 40px;
+        display: none;
+        z-index: 9999;
+        overflow: auto;
+        font-family: 'Fira Code', monospace;
+    }
+
+    #terminal-text {
+        white-space: pre;
+        font-size: 14px;
+    }
 </style>
 </head>
 
@@ -126,7 +145,29 @@
 
 </div>
 
+<!-- Terminal -->
+<div id="terminal">
+<pre id="terminal-text">
+███████╗ █████╗ ██████╗  ██████╗ ███████╗ ███████╗ ███████╗
+██╔════╝██╔══██╗██╔══██╗██╔═══██╗██╔════╝ ██╔════╝ ██╔════╝
+█████╗  ███████║██████╔╝██║   ██║███████╗ ███████╗ ███████╗
+██╔══╝  ██╔══██║██╔══██╗██║   ██║╚════██║ ╚════██║ ╚════██║
+██║     ██║  ██║██║  ██║╚██████╔╝███████║ ███████║ ███████║
+╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝ ╚══════╝ ╚══════╝
+
+farosss@github
+---------------------------------
+Site Type: Portfolio
+Host: GitHub Pages
+Domain: itsfarosss.github.io/farosss.github.io/
+Background: Canvas Particle Engine
+
+Press ESC to exit terminal
+</pre>
+</div>
+
 <script>
+/* Particle Background */
 const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
 
@@ -140,14 +181,13 @@ for (let i = 0; i < 80; i++) {
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         radius: Math.random() * 2 + 1,
-        dx: (Math.random() - 0.5) * 1,
-        dy: (Math.random() - 0.5) * 1
+        dx: (Math.random() - 0.5),
+        dy: (Math.random() - 0.5)
     });
 }
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     ctx.fillStyle = "rgba(255,255,255,0.7)";
 
     particles.forEach(p => {
@@ -164,12 +204,21 @@ function animate() {
 
     requestAnimationFrame(animate);
 }
-
 animate();
 
 window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+});
+
+/* Terminal Toggle */
+document.addEventListener("keydown", function(e) {
+    if (e.altKey && e.key === "Enter") {
+        document.getElementById("terminal").style.display = "block";
+    }
+    if (e.key === "Escape") {
+        document.getElementById("terminal").style.display = "none";
+    }
 });
 </script>
 
